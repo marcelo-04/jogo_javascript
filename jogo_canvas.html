@@ -1,0 +1,32 @@
+<html>
+  <body>
+    <canvas id="canvas" width="600" height="500"></canvas>
+    
+    <script>
+      //A linha abaixo é para desenhar, o objeto canvas.
+      var folhaDesenho = document.getElementById("canvas");
+      var areaDesenho = folhaDesenho.getContext("2d");
+
+      var larguraCampo = 600;
+      var alturaCampo = 500;
+      var larguraLinha = 5;
+      var larguraBola = 5;
+      var alturaRaquete = 50;
+
+      //Desenho do campo e a área do campo.
+      areaDesenho.fillStyle = '#286047';
+      areaDesenho.fillRect(0, 0, larguraCampo, alturaCampo);
+
+      //Código para linha do centro do campo.
+      areaDesenho.fillStyle = '#ffffff';
+      //A linha abaixo é para linha do centro.
+      areaDesenho.fillRect(larguraCampo/2 - larguraLinha/2, 0, larguraLinha, alturaCampo);
+      //A linha é para a raquete 1 a esquerda do campo, "a trave do campo".
+      areaDesenho.fillRect(0, 30, larguraLinha, alturaRaquete);
+      //A linha é para a raquete 2 a direita do campo, "a trave do campo".
+      areaDesenho.fillRect(larguraCampo - larguraLinha, 300, larguraLinha, alturaRaquete);
+      //A linha abaixo é para desenhar a bola "quadrada".
+      areaDesenho.fillRect(30, 30, larguraBola, larguraBola);
+    </script>
+  </<body>
+</html>

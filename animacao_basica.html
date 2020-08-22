@@ -1,0 +1,44 @@
+<html>
+  <body>
+    <canvas id="canvas" width="600" height="500"></canvas>
+
+    <script>
+    //Função para o atrasso do movimento da bola.
+      window.onload = function() {
+        setInterval(executar, 1000 / 30);
+      }
+
+      var posicaoBolaX = posicaoBolaY = 10;
+
+      function executar() {
+        //Criado os objetos de desenho obrigatorios
+        var canvasDesenho = document.getElementById("canvas");
+        var areaDesenho = canvasDesenho.getContext("2d");
+
+        var larguraCampo = 600;
+        var alturaCampo = 500;
+        var espessuraRede = 5;
+
+        var diametroBola = 10;
+
+        areaDesenho.fillStyle = "#286047"; // cor verde
+
+        areaDesenho.fillRect(0, 0, larguraCampo, alturaCampo);
+
+        areaDesenho.fillStyle = "#ffffff"; // cor branca
+
+        areaDesenho.fillRect(larguraCampo / 2 - espessuraRede / 2, 0, espessuraRede, alturaCampo);
+
+        //Desenha a bola.
+        areaDesenho.fillRect(posicaoBolaX - diametroBola / 2, posicaoBolaY - diametroBola / 2,
+          diametroBola, diametroBola);
+
+        posicaoBolaX = posicaoBolaX + 1;
+        posicaoBolaY = posicaoBolaY + 1;
+
+
+        console.log("Tic-Tac");
+      }
+    </script>
+  </body>
+</html>

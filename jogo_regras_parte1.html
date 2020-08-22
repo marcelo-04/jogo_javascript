@@ -1,0 +1,52 @@
+<html>
+  <body>
+    <canvas id="quadrado" width="600" height="500"></canvas>
+
+    <script>
+    //Função para o atrasso do movimento da bola.
+      window.onload = function() {
+        setInterval(executar, 1000 / 30);
+      }
+
+      var posicaoBolaX = posicaoBolaY = 10;
+      var velocidadeBolaPosicaoX = velocidadeBolaPosicaoY = 5;
+
+      function executar() {
+        //Criado os objetos de desenho obrigatorios
+        var quadradoDesenho = document.getElementById("quadrado");
+        var areaDesenho = quadradoDesenho.getContext("2d");
+
+        var larguraCampo = 600;
+        var alturaCampo = 500;
+        var espessuraRede = 5;
+
+        var diametroBola = 10;
+        // Comandos de desenhos
+        areaDesenho.fillStyle = "#286047"; // cor verde
+
+        areaDesenho.fillRect(0, 0, larguraCampo, alturaCampo);
+
+        areaDesenho.fillStyle = "#ffffff"; // cor branca
+
+        areaDesenho.fillRect(larguraCampo / 2 - espessuraRede / 2, 0, espessuraRede, alturaCampo);
+
+        //Desenha a bola.
+        areaDesenho.fillRect(posicaoBolaX - diametroBola / 2, posicaoBolaY - diametroBola / 2,
+          diametroBola, diametroBola);
+
+        posicaoBolaX = posicaoBolaX + velocidadeBolaPosicaoX;
+        posicaoBolaY = posicaoBolaY + velocidadeBolaPosicaoY;
+
+        //criando regras do jogo, verifica a lateral superior.
+        if(posicaoBolaY < 0 && velocidadeBolaPosicaoY < 0){
+          velocidadeBolaPosicaoY = -velocidadeBolaPosicaoY;
+        }
+        //Verifica a lateral inferior
+        if(posicaoBolaX > alturaCampo && velocidadeBolaPosicaoY > 0){
+          velocidadeBolaPosicaoY = -velocidadeBolaPosicaoY;
+        }
+        console.log("Tic-Tac");
+      }
+    </script>
+  </body>
+</html>
